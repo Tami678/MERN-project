@@ -157,3 +157,85 @@ body {
     width: 80vh;
 }
 /* Additional styling for a smaller button, if needed */
+/* Default grid (desktop) */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Listing card styling */
+.listing-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.listing-card:hover {
+  transform: translateY(-5px);
+}
+
+.listing-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.listing-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem;
+  color: #333;
+}
+
+.listing-card p {
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ✅ Tablet (2 columns) */
+@media (max-width: 1024px) {
+  .listing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ✅ Mobile (1 column) */
+@media (max-width: 768px) {
+  .listing-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .listing-card img {
+    height: 180px;
+  }
+
+  .listing-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .listing-card p {
+    font-size: 0.85rem;
+  }
+}
+
+/* ✅ Extra small devices (very small phones) */
+@media (max-width: 480px) {
+  .listing-grid {
+    padding: 0.5rem;
+    gap: 0.8rem;
+  }
+
+  .listing-card {
+    border-radius: 12px;
+  }
+
+  .listing-card img {
+    height: 160px;
+  }
+}
