@@ -1,47 +1,114 @@
 <%- layout("/layouts/boilerplate") %>
 
-<div class="row mt-3">
-        
-    <div class="col-12 col-md-8 offset-md-2">
-        <h1 class="col-6 offset-3">Signup on Wanderlust</h1>
-        <form action="/signup" method="POST" class="needs-validation" novalidate>
+<style>
+  body {
+    background-color: #f7f7f7;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
 
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    id="username" 
-                    name="username" 
-                    required/>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-            </div>
-             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input 
-                    type="email" 
-                    class="form-control" 
-                    id="email" 
-                    name="email" 
-                    required
-                />
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input 
-                    type="password" 
-                    class="form-control" 
-                    id="password" 
-                    name="password" 
-                    required
-                />
-            </div>
-            <button  class="btn btn-success">SignUp</button>
-        </form>
+  .signup-container {
+    max-width: 420px;
+    margin: 5% auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  }
+
+  .signup-container h1 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #222;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .form-control {
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus {
+    border-color: #198754; /* green focus for signup */
+    box-shadow: 0 0 8px rgba(25, 135, 84, 0.3);
+  }
+
+  .btn-signup {
+    background-color: #198754; /* Bootstrap green */
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+    padding: 0.7rem;
+    width: 100%;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-signup:hover {
+    background-color: #157347;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 576px) {
+    .signup-container {
+      margin: 15% 1rem;
+      padding: 1.5rem;
+    }
+    .btn-signup {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<div class="signup-container">
+  <h1>Signup on Wanderlust</h1>
+  <form action="/signup" method="POST" class="needs-validation" novalidate>
+    
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="username" 
+        name="username" 
+        required
+      />
     </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="email" 
+        name="email" 
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        id="password" 
+        name="password" 
+        required
+      />
+    </div>
+
+    <button type="submit" class="btn-signup">Sign Up</button>
+  </form>
 </div>
+
 <script>
 (function () {
   'use strict'
@@ -57,5 +124,3 @@
   })
 })()
 </script>
-
-

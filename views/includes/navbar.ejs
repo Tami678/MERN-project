@@ -1,29 +1,97 @@
 <style>
-  .search-btn {
-    background-color:  #fe424d;
-    color:#fff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-  }
-  .search-btn:hover{
-    background-color: #fe424d;
-    color:#fff;
-  }
-  .search-btn i{
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  .search-inp{
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-    font-size:1rem ;
+  /* === Search Bar Styling === */
+  .navbar-search {
+    flex: 1;
+    display: flex;
+    justify-content: center;
   }
 
+  .navbar-search form {
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 2px solid #ddd;
+    border-radius: 50px;
+    overflow: hidden;
+    background: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-search form:focus-within {
+    border-color: #fe424d;
+    box-shadow: 0 0 8px rgba(254, 66, 77, 0.3);
+  }
+
+  .search-inp {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .search-btn:hover {
+    background-color: #e63946;
+    transform: scale(1.05);
+  }
+
+  .search-btn i {
+    margin: 0;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .navbar-search {
+      justify-content: flex-start;
+      width: 100%;
+      margin-top: 0.6rem;
+    }
+
+    .navbar-search form {
+      max-width: 100%;
+      border-radius: 12px; /* smaller pill on mobile */
+    }
+
+    .search-inp {
+      padding: 0.45rem 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .search-btn {
+      padding: 0.45rem 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    /* Hide "Search" text on small screens */
+    .search-btn span {
+      display: none;
+    }
+  }
 </style>
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
 
+    <!-- Brand -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- Toggler -->
     <button 
       class="navbar-toggler" 
       type="button" 
@@ -31,38 +99,56 @@
       data-bs-target="#navbarNavAltMarkup" 
       aria-controls="navbarNavAltMarkup" 
       aria-expanded="false" 
-      aria-label="Toggle navigation"
-    >
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Collapsible Content -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" action="/listings" method="GET">
+
+      <!-- Left: Explore -->
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings">Explore</a>
+        </li>
+      </ul>
+
+      <!-- Center: Search Bar -->
+      <div class="navbar-search">
+        <form action="/listings" method="GET">
           <input 
             type="text"
-            class="form-control me-2 search-inp" 
+            class="search-inp" 
             name="city"
             placeholder="Search by city"
             value="<%= typeof search !== 'undefined' ? search : '' %>"
           />
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
+          <button class="search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Search</span>
           </button>
         </form>
       </div>
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+
+      <!-- Right: User Links -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        </li>
         <% if(!currUser){ %>
-        <a class="nav-link" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-        <% }  %><% if(currUser) { %>
-        <a class="nav-link" href="/logout"><b>Log out</b></a>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login"><b>Log in</b></a>
+          </li>
         <% } %>
-      </div>
+        <% if(currUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><b>Log out</b></a>
+          </li>
+        <% } %>
+      </ul>
     </div>
   </div>
 </nav>

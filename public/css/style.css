@@ -115,7 +115,7 @@ body {
 /* Button Styling (Create & Edit) */
 .add-btn,
 .edit-btn {
-    background-color: #fe424d !important;
+    background-color: #000 !important;
     border: none !important;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
@@ -239,3 +239,220 @@ body {
     height: 160px;
   }
 }
+/* --------------------
+   EDIT PAGE CUSTOM STYLES
+-------------------- */
+
+/* Card wrapper */
+.card {
+  border: none;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Title */
+.form-title, h3.text-danger {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #ff385c !important; /* Airbnb red */
+}
+
+/* Labels */
+.form-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Inputs & Textarea */
+.form-control {
+  border-radius: 10px;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #ff385c;
+  box-shadow: 0 0 0 0.2rem rgba(255, 56, 92, 0.25);
+}
+
+/* Image preview */
+.preview-img,
+.img-thumbnail {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+.btn-danger {
+  background-color: #ff385c !important;
+  border: none;
+  font-weight: 500;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #e62e50 !important;
+}
+/* ✅ Consistent Black Button for Edit */
+.btn-dark {
+  background-color: #000 !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.2rem !important;
+  }
+
+  h3.text-danger {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    width: 100% !important;
+  }
+}
+/* =====================
+   Responsive Listing Page Styles
+   ===================== */
+
+/* Card & Image Styling */
+.listing-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+.listing-card:hover {
+  transform: translateY(-5px);
+}
+.listing-card img {
+  object-fit: cover;
+  max-height: 400px;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px;
+  padding: 8px 18px;
+}
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+.btn-dark {
+  background-color: #222;
+  border: none;
+}
+.btn-outline-dark:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Review Form */
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+  border-radius: 10px;
+}
+textarea.form-control:focus {
+  border-color: #333;
+  box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.15);
+}
+
+/* Review Cards */
+.card {
+  border-radius: 14px;
+}
+.card-body {
+  padding: 1rem 1.2rem;
+}
+.card-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Star Rating (Starability reset) */
+.starability-slot {
+  display: flex;
+  gap: 4px;
+  flex-wrap: nowrap;
+}
+.starability-slot input {
+  display: none;
+}
+.starability-slot label {
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s;
+}
+.starability-slot input:checked ~ label,
+.starability-slot label:hover,
+.starability-slot label:hover ~ label {
+  color: #ffb400;
+}
+
+/* Show review stars result */
+.starability-result::before {
+  
+  letter-spacing: 3px;
+  background: linear-gradient(
+    90deg,
+    #ffb400 calc(var(--rating, 0) / 5 * 100%),
+    #ccc calc(var(--rating, 0) / 5 * 100%)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
+
+/* Map styling */
+#map {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .listing-card img {
+    max-height: 250px;
+  }
+  .card-body {
+    padding: 0.8rem;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+.edit-heading {
+  color: #000 !important;      /* black */
+  font-weight: 700 !important; /* bold */
+}
+
+
+
