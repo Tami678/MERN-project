@@ -1,0 +1,158 @@
+/* Import font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container {
+    flex: 1;
+}
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link {
+    color: #222222 !important;
+}
+
+/* Footer Styling */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* Listings Page & Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body {
+    padding: 0 !important;
+}
+.card-text p {
+    font-weight: 400 !important;
+}
+.listing-link {
+    text-decoration: none;
+}
+.card-img-overlay {
+    opacity: 0;
+}
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* Form Styles for Create/Edit Listing Page */
+.container h1,
+.container h3 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.needs-validation {
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 2rem;
+}
+.form-label {
+    font-weight: 500;
+    color: #333;
+    font-size: 1rem;
+}
+.form-control {
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+.form-control:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 0.25rem rgba(254, 66, 77, 0.25);
+}
+
+/* Button Styling (Create & Edit) */
+.add-btn,
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+.add-btn:hover,
+.edit-btn:hover {
+    background-color: #d13641 !important;
+}
+
+/* Show page styles */
+.show-img {
+    height: 30vh;
+}
+.btns {
+    display: flex;
+    gap:1rem;
+}
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    width: auto;
+}
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+.btn-dark-custom {
+    background-color: #222222 !important;
+    color: white !important;
+    border: none !important;
+}
+/* Maop Styling */
+#map{
+    height: 400px;
+    width: 80vh;
+}
+/* Additional styling for a smaller button, if needed */
