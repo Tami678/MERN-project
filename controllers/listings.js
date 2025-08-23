@@ -3,10 +3,26 @@ const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
-module.exports.index = async (req, res) => {
+/*module.exports.index = async (req, res) => {
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
+};*/
+module.exports.index = async (req, res) => {
+    let query = {};
+
+    if (req.query.city) {
+        query = {
+            $or: [
+                { location: { $regex: req.query.city, $options: "i" } },
+                { title: { $regex: req.query.city, $options: "i" } }
+            ]
+        };
+    }
+
+    const allListings = await Listing.find(query);
+    res.render("listings/index.ejs", { allListings, search: req.query.city || "" });
 };
+
 module.exports.renderNewForm = (req, res) => {
     res.render("listings/new.ejs");
 };
