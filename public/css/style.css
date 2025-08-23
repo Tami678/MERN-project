@@ -37,6 +37,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    color:#aaa;
 }
 .f-info-socials i {
     font-size: 1.2rem;
