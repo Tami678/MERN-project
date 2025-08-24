@@ -9,18 +9,28 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 };*/
 
 module.exports.index = async (req, res) => {
-  const { category } = req.query; // ✅ get category from query string
+  const { city, category } = req.query;  // 👈 pick city from query
 
   let filter = {};
+
   if (category) {
     filter.category = category;
   }
 
+  if (city) {
+    // Case-insensitive search on "location" field (or "city" if you have a separate field)
+    filter.location = { $regex: city, $options: "i" };
+  }
+
   const listings = await Listing.find(filter);
 
-  res.render("listings/index", { allListings:listings,category });
-  // Or res.json(listings) if you’re building API
+  res.render("listings/index", { 
+    allListings: listings, 
+    category, 
+    search: city || ""   // 👈 pass search back to navbar
+  });
 };
+
 
 module.exports.renderNewForm = (req, res) => {
     res.render("listings/new.ejs");
