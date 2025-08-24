@@ -32,7 +32,7 @@ const listingSchema = new mongoose.Schema({
       "Domes",
       "Boats"
     ],
-    required: true
+    
   },
   reviews: [
     {
