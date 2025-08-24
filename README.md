@@ -46,17 +46,17 @@ npm run dev
 📂 Project Structure
 mern-project/
  ├── models/ 
- # Mongoose schemas
+ ### Mongoose schemas
  ├── routes/       
- # Express routes
+ ### Express routes
  ├── views/        
- # EJS/Handlebars templates (if used)
+ ### EJS/Handlebars templates (if used)
  ├── public/        
- # Static assets (CSS, JS, images)
+ ### Static assets (CSS, JS, images)
  ├── server.js      
- # Entry point
+ ### Entry point
  ├── .env          
- # Environment variables
+ ### Environment variables
  └── package.json
 
  🌍 Deployment
