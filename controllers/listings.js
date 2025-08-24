@@ -7,20 +7,19 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
     const allListings = await Listing.find({});
     res.render("listings/index.ejs", { allListings });
 };*/
+
 module.exports.index = async (req, res) => {
-    let query = {};
+  const { category } = req.query; // ✅ get category from query string
 
-    if (req.query.city) {
-        query = {
-            $or: [
-                { location: { $regex: req.query.city, $options: "i" } },
-                { title: { $regex: req.query.city, $options: "i" } }
-            ]
-        };
-    }
+  let filter = {};
+  if (category) {
+    filter.category = category;
+  }
 
-    const allListings = await Listing.find(query);
-    res.render("listings/index.ejs", { allListings, search: req.query.city || "" });
+  const listings = await Listing.find(filter);
+
+  res.render("listings/index", { allListings:listings,category });
+  // Or res.json(listings) if you’re building API
 };
 
 module.exports.renderNewForm = (req, res) => {
