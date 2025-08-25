@@ -6,586 +6,54 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #fafafa; /* subtle Airbnb background */
+    color: #222;
 }
 .container {
     flex: 1;
+    max-width: 1200px;
 }
+
+/* =======================
+   NAVBAR
+======================= */
 .navbar {
     height: 5rem;
-    background-color: white;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    padding: 0.5rem 1rem;
+}
+.navbar-brand {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #FF385C !important;
+    letter-spacing: -0.5px;
 }
 .fa-compass {
-    color: #fe424d;
-    font-size: 2rem;
+    color: #FF385C;
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
 }
 .nav-link {
     color: #222222 !important;
-}
-
-/* Footer Styling */
-.f-info-links a {
-    text-decoration: none;
-    color: #222222;
-}
-.f-info-links a:hover {
-    text-decoration: underline;
-}
-.f-info-links,
-.f-info-socials,
-.f-info-brand {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color:#aaa;
-}
-.f-info-socials i {
-    font-size: 1.2rem;
-    margin-right: 1rem;
-}
-.f-info {
-    text-align: center;
-    height: 8rem;
-    background-color: #ebebeb;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
-}
-
-/* Listings Page & Cards */
-.listing-card {
-    border: none !important;
-    margin-bottom: 2rem;
-}
-.card-img-top {
-    border-radius: 1rem !important;
-    width: 100% !important;
-    object-fit: cover !important;
-}
-.card-body {
-    padding: 0 !important;
-}
-.card-text p {
-    font-weight: 400 !important;
-}
-.listing-link {
-    text-decoration: none;
-}
-.card-img-overlay {
-    opacity: 0;
-}
-.card-img-overlay:hover {
-    opacity: 0.2;
-    background-color: white;
-}
-
-/* Form Styles for Create/Edit Listing Page */
-.container h1,
-.container h3 {
-    text-align: left;
-    margin-bottom: 1.5rem;
-    font-size: 2rem;
-    font-weight: 700;
-}
-.needs-validation {
-    padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    margin-bottom: 2rem;
-}
-.form-label {
+    margin: 0 0.5rem;
     font-weight: 500;
-    color: #333;
-    font-size: 1rem;
 }
-.form-control {
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-}
-.form-control:focus {
-    border-color: #fe424d;
-    box-shadow: 0 0 0 0.25rem rgba(254, 66, 77, 0.25);
+.nav-link:hover {
+    color: #FF385C !important;
 }
 
-/* Button Styling (Create & Edit) */
-.add-btn,
-.edit-btn {
-    background-color: #000 !important;
-    border: none !important;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
-    width: 100%;
-}
-.add-btn:hover,
-.edit-btn:hover {
-    background-color: #d13641 !important;
-}
-
-/* Show page styles */
-.show-img {
-    height: 30vh;
-}
-.btns {
-    display: flex;
-    gap:1rem;
-}
-.btn-small {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    width: auto;
-}
-.show-card {
-    padding-left: 0;
-    padding-right: 0;
-}
-.btn-dark-custom {
-    background-color: #222222 !important;
-    color: white !important;
-    border: none !important;
-}
-/* Maop Styling */
-#map{
-    height: 400px;
-    width: 80vh;
-}
-/* Additional styling for a smaller button, if needed */
-/* Default grid (desktop) */
-.listing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  padding: 1rem;
-}
-
-/* Listing card styling */
-.listing-card {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-}
-
-.listing-card:hover {
-  transform: translateY(-5px);
-}
-
-.listing-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
-}
-
-.listing-card h3 {
-  font-size: 1rem;
-  margin: 0.5rem;
-  color: #333;
-}
-
-.listing-card p {
-  margin: 0.5rem;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* ✅ Tablet (2 columns) */
-@media (max-width: 1024px) {
-  .listing-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ✅ Mobile (1 column) */
-@media (max-width: 768px) {
-  .listing-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .listing-card img {
-    height: 180px;
-  }
-
-  .listing-card h3 {
-    font-size: 0.95rem;
-  }
-
-  .listing-card p {
-    font-size: 0.85rem;
-  }
-}
-
-/* ✅ Extra small devices (very small phones) */
-@media (max-width: 480px) {
-  .listing-grid {
-    padding: 0.5rem;
-    gap: 0.8rem;
-  }
-
-  .listing-card {
-    border-radius: 12px;
-  }
-
-  .listing-card img {
-    height: 160px;
-  }
-}
-/* --------------------
-   EDIT PAGE CUSTOM STYLES
--------------------- */
-
-/* Card wrapper */
-.card {
-  border: none;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-/* Title */
-.form-title, h3.text-danger {
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: #ff385c !important; /* Airbnb red */
-}
-
-/* Labels */
-.form-label {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #333;
-}
-
-/* Inputs & Textarea */
-.form-control {
-  border-radius: 10px;
-  padding: 10px 14px;
-  border: 1px solid #ddd;
-  font-size: 0.95rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-control:focus {
-  border-color: #ff385c;
-  box-shadow: 0 0 0 0.2rem rgba(255, 56, 92, 0.25);
-}
-
-/* Image preview */
-.preview-img,
-.img-thumbnail {
-  border-radius: 12px;
-  max-width: 100%;
-  height: auto;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-}
-
-/* Buttons */
-.btn-danger {
-  background-color: #ff385c !important;
-  border: none;
-  font-weight: 500;
-  border-radius: 12px;
-  padding: 12px;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.btn-danger:hover {
-  background-color: #e62e50 !important;
-}
-/* ✅ Consistent Black Button for Edit */
-.btn-dark {
-  background-color: #000 !important;
-  color: #fff !important;
-  border: none !important;
-  font-weight: 500;
-  border-radius: 8px;
-  padding: 10px 18px;
-  font-size: 1rem;
-  transition: background 0.3s ease;
-}
-
-.btn-dark:hover {
-  background-color: #333 !important;
-  color: #fff !important;
-}
-
-
-
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .card {
-    padding: 1.2rem !important;
-  }
-
-  h3.text-danger {
-    font-size: 1.3rem;
-  }
-
-  .btn {
-    width: 100% !important;
-  }
-}
-/* =====================
-   Responsive Listing Page Styles
-   ===================== */
-
-/* Card & Image Styling */
-.listing-card {
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-}
-.listing-card:hover {
-  transform: translateY(-5px);
-}
-.listing-card img {
-  object-fit: cover;
-  max-height: 400px;
-}
-
-/* Buttons */
-.btn {
-  border-radius: 8px;
-  padding: 8px 18px;
-}
-.btn-danger {
-  background-color: #dc3545;
-  border: none;
-}
-.btn-dark {
-  background-color: #222;
-  border: none;
-}
-.btn-outline-dark:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-/* Review Form */
-textarea.form-control {
-  resize: vertical;
-  min-height: 100px;
-  border-radius: 10px;
-}
-textarea.form-control:focus {
-  border-color: #333;
-  box-shadow: 0 0 0 0.2rem rgba(0,0,0,0.15);
-}
-
-/* Review Cards */
-.card {
-  border-radius: 14px;
-}
-.card-body {
-  padding: 1rem 1.2rem;
-}
-.card-title {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-/* Star Rating (Starability reset) */
-.starability-slot {
-  display: flex;
-  gap: 4px;
-  flex-wrap: nowrap;
-}
-.starability-slot input {
-  display: none;
-}
-.starability-slot label {
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: #ccc;
-  transition: color 0.2s;
-}
-.starability-slot input:checked ~ label,
-.starability-slot label:hover,
-.starability-slot label:hover ~ label {
-  color: #ffb400;
-}
-
-/* Show review stars result */
-.starability-result::before {
-  
-  letter-spacing: 3px;
-  background: linear-gradient(
-    90deg,
-    #ffb400 calc(var(--rating, 0) / 5 * 100%),
-    #ccc calc(var(--rating, 0) / 5 * 100%)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 1.2rem;
-}
-
-/* Map styling */
-#map {
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .listing-card img {
-    max-height: 250px;
-  }
-  .card-body {
-    padding: 0.8rem;
-  }
-  .btn {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-}
-.edit-heading {
-  color: #000 !important;      /* black */
-  font-weight: 700 !important; /* bold */
-}
-/* --- Filter Section --- */
-#filters {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.filter {
-  text-align: center;
-  margin: 0.5rem;
-  opacity: 0.7;
-  flex: 0 1 auto;
-}
-.filter:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-.filter i {
-  font-size: 1rem;
-}
-.filter p {
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
-}
-.filter.active-filter {
-  opacity: 1;
-  border-bottom: 2px solid #ff385c;
-  color: #ff385c;
-}
-
-
-.tax-info {
-  display: none;
-}
-
-.tax-toggle {
-  border: 1px solid black;
-  border-radius: 1rem;
-  padding: 0.5rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
-
-/* --- Card Section --- */
-.listing-card {
-  height: 100%;
-  border-radius: 1rem;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.listing-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-.listing-card img {
-  height: 20rem;
-  object-fit: cover;
-  width: 100%;
-}
-
-/* Heart icon */
-/* Heart icon */
-.heart-icon {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  padding: 8px;
-  font-size: 1.3rem;
-  color: #777; /* default gray */
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-.heart-icon:hover {
-  color: #ff385c; /* Airbnb red */
-  transform: scale(1.2);
-  cursor: pointer;
-}
-.heart-icon.active {
-  color: #ff385c; /* stays red when active */
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 992px) {
-  #filters {
-    justify-content: center;
-  }
-  .filter i {
-    font-size: 1.3rem;
-  }
-  .filter p {
-    font-size: 0.75rem;
-  }
-  .tax-toggle {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.8rem;
-  }
-}
-
-@media (max-width: 576px) {
-  #filters {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .filter {
-    flex: 1 1 auto;
-    margin: 0.3rem 0;
-  }
-  .tax-toggle {
-    width: 100%;
-    justify-content: center;
-  }
-  .listing-card img {
-    height: 15rem;
-  }
-}
+/* =======================
+   FOOTER
+======================= */
 footer.footer {
   background-color: #f7f7f7;
   border-top: 1px solid #ddd;
-  font-family: "Arial", sans-serif;
   color: #222;
   margin-top: 30px;
+  font-size: 14px;
 }
-
-/* ---------- TOP FOOTER ---------- */
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -594,39 +62,31 @@ footer.footer {
   margin: 0 auto;
   padding: 40px 20px;
 }
-
 .footer-col {
   flex: 1 1 200px;
   margin: 10px;
 }
-
 .footer-col h4 {
   font-weight: bold;
   font-size: 16px;
   margin-bottom: 12px;
 }
-
 .footer-col ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .footer-col ul li {
   margin: 6px 0;
 }
-
 .footer-col ul li a {
   text-decoration: none;
   color: #444;
   font-size: 14px;
 }
-
 .footer-col ul li a:hover {
   text-decoration: underline;
 }
-
-/* ---------- BOTTOM FOOTER ---------- */
 .footer-bottom {
   border-top: 1px solid #ddd;
   display: flex;
@@ -636,65 +96,425 @@ footer.footer {
   max-width: 1200px;
   margin: 0 auto;
   padding: 15px 20px;
-  font-size: 14px;
 }
-
 .footer-left {
   color: #555;
 }
-
 .footer-left a {
   margin: 0 5px;
   color: #555;
   text-decoration: none;
 }
-
 .footer-left a:hover {
   text-decoration: underline;
 }
-.footer-right a:hover i {
-  transform: scale(1.2);
-}
-
-
 .footer-right {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-
 .footer-right a {
   color: #444;
   text-decoration: none;
   font-size: 14px;
 }
-
 .footer-right a i {
   font-size: 18px;
   transition: transform 0.2s, color 0.3s;
 }
+.footer-right a:hover i {
+  transform: scale(1.2);
+}
 .footer-right a:hover .fa-facebook { color: #1877F2; }
 .footer-right a:hover .fa-twitter { color: #1DA1F2; }
 .footer-right a:hover .fa-instagram { color: #E4405F; }
-
-/* ---------- RESPONSIVE ---------- */
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
     padding: 20px;
   }
-
-  .footer-col {
-    margin-bottom: 20px;
-  }
-
+  .footer-col { margin-bottom: 20px; }
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
+  .footer-right { gap: 10px; }
+}
 
-  .footer-right {
-    gap: 10px;
+
+
+/* =======================
+   LISTINGS PAGE (Compact)
+======================= */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  padding: 1rem;
+}
+
+.listing-card {
+  border: none !important;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  max-width: 300px;   /* slightly smaller */
+  margin: auto;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.listing-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+}
+
+.listing-card img {
+  width: 100%;
+  height: 180px;   /* reduced from 220px */
+  object-fit: cover;
+}
+
+.listing-card h3 {
+  font-size: 0.95rem;
+  margin: 0.4rem 0.6rem 0 0.6rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.listing-card p {
+  margin: 0.2rem 0.6rem 0.6rem 0.6rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Heart Icon */
+.heart-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  padding: 6px;
+  font-size: 1.2rem;
+  color: #777;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.heart-icon:hover { color: #FF385C; transform: scale(1.15); cursor: pointer; }
+.heart-icon.active { color: #FF385C; }
+
+/* Responsive grid */
+@media (max-width: 1024px) {
+  .listing-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .listing-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .listing-card img { height: 160px; }
+}
+@media (max-width: 480px) {
+  .listing-grid { padding: 0.5rem; gap: 0.7rem; }
+  .listing-card { border-radius: 12px; max-width: 100%; }
+  .listing-card img { height: 140px; }
+}
+
+
+
+/* =======================
+   CREATE / EDIT FORM
+======================= */
+.needs-validation {
+   max-width: 650px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);/* keep form centered & compact */
+}
+
+/* Labels */
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 0.75rem;
+  border: 1px solid #ccc;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom style for listing images */
+.listing-img {
+  max-width: 100%;        /* Responsive: fits container width */
+  width: 300px;           /* Default size on large screens */
+  height: auto;           /* Keeps aspect ratio */
+  display: block;         /* Avoids inline issues */
+  border-radius: 12px;    /* Smooth rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Subtle shadow */
+  margin: 0 auto 15px 0;  /* Left aligned, with spacing below */
+  transition: transform 0.3s ease-in-out; /* Hover effect */
+}
+
+.listing-img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* On smaller screens, let image take full width */
+@media (max-width: 576px) {
+  .listing-img {
+    width: 100%;
+    max-width: 100%;
   }
+}
+
+
+
+.form-control:focus {
+  border-color: #FF385C;
+  box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.25);
+  outline: none;
+}
+
+/* Buttons */
+.add-btn,
+.edit-btn {
+  background-color: #FF385C !important; /* Airbnb pink */
+  border: none !important;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  color: #fff !important;
+  font-size: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 2px 6px rgba(255, 56, 92, 0.2);
+}
+
+.add-btn:hover,
+.edit-btn:hover {
+  background-color: #E03150 !important;
+  transform: translateY(-2px);
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .needs-validation {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}
+/* =======================
+   SHOW PAGE (Airbnb Style)
+======================= */
+.show-card {
+    max-width: 900px;
+    margin: 1.5rem auto;
+    padding: 1.2rem;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+/* Listing image */
+.show-img {
+    width: 100%;
+    height: 380px; /* reduced for compactness */
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+}
+
+/* Title */
+.show-card h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.4rem;
+}
+
+/* Subtitle / Hosted by */
+.show-card .subtitle {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+}
+
+/* Description */
+.show-card .description {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+/* Price */
+.show-card .price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #008000;
+    margin-top: 0.6rem;
+}
+
+/* Buttons */
+.btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+.btn-small:hover { transform: translateY(-2px); }
+
+/* Button colors */
+.btn-dark-custom,
+.btn-dark {
+    background-color: #222 !important;
+    color: #fff !important;
+    border: none !important;
+}
+.btn-danger {
+    background-color: #FF385C !important;
+    border: none;
+}
+.btn-danger:hover {
+    background-color: #E03150 !important;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media (max-width: 1024px) {
+    .show-img { height: 300px; }
+}
+
+@media (max-width: 768px) {
+    .show-card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+    .show-img { height: 240px; }
+    .show-card h2 { font-size: 1.2rem; }
+    .show-card .price { font-size: 1.05rem; }
+}
+
+@media (max-width: 480px) {
+    .show-card {
+        margin: 1rem;
+        padding: 0.8rem;
+    }
+    .show-img { height: 200px; border-radius: 10px; }
+    .show-card h2 { font-size: 1.1rem; }
+    .show-card .description { font-size: 0.9rem; }
+    .show-card .price { font-size: 1rem; }
+}
+
+/* =======================
+   MAP CONTAINER
+======================= */
+#map {
+  width: 25%;
+  height: 200px; /* compact size for desktop */
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+}
+
+/* Make map taller on mobile for better visibility */
+@media (max-width: 750px) {
+  #map {
+    height: 220px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  #map {
+    height: 200px;
+    border-radius: 10px;
+  }
+}
+
+
+/* =======================
+   REVIEWS
+======================= */
+.review-form {
+  border: 2px solid #eee;
+  border-radius: 16px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Review card */
+.list-group-item {
+  border-radius: 16px !important;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 1rem;
+  border: none;
+  padding: 1.25rem;              /* ⬅️ more padding for Airbnb look */
+  transition: all 0.2s ease-in;  /* ⬅️ hover effect */
+}
+.list-group-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.list-group-item h6 { 
+  font-weight: 600; 
+  margin-bottom: 0.4rem; 
+  color: #111;                  /* ⬅️ darker username like Airbnb */
+}
+.list-group-item p { 
+  font-size: 0.95rem; 
+  color: #444; 
+  margin-top: 0.4rem; 
+}
+
+/* Stars + rating */
+.starability-result { 
+  font-size: 1.3rem; 
+  margin-bottom: 6px; 
+  display: flex;                 /* ⬅️ make stars + text inline */
+  align-items: center;
+}
+
+/* new: rating value (like "4 Stars") */
+.rating-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+  margin-left: 0.5rem;
+}
+
+/* Delete button Airbnb style */
+.delete-btn {
+  background: none;
+  border: 1px solid #FF385C;
+  color: #FF385C;
+  border-radius: 2rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.6rem;
+}
+.delete-btn:hover {
+  background: #FF385C;
+  color: #fff;
 }
