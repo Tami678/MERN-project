@@ -16,7 +16,7 @@ const listingSchema = new mongoose.Schema({
   price: Number,
   location: String,
   country: String,
-   // ⭐ Add this for filters
+   // Add this for filters
   category: {
     type: String,
     enum: [

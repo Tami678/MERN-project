@@ -62,3 +62,64 @@
  
 
 </footer>
+<script>
+    // Get the modal and its content elements
+  const modal = document.getElementById('message-modal');
+  const modalText = document.getElementById('modal-text');
+  const closeButton = document.querySelector('.close-button');
+
+  // Function to show the modal with a specific message
+  function showModal(message) {
+    modalText.textContent = message;
+    modal.style.display = 'flex';
+  }
+
+  // Function to close the modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  // Attach event listener to the close button
+  closeButton.addEventListener('click', closeModal);
+
+  // Close the modal if the user clicks anywhere outside of it
+  window.addEventListener('click', (event) => {
+    if (event.target == modal) {
+      closeModal();
+    }
+  });
+
+  // Get the links and add event listeners
+  const languageLink = document.getElementById('language-link');
+  const currencyLink = document.getElementById('currency-link');
+  const facebookLink = document.getElementById('facebook-link');
+  const twitterLink = document.getElementById('twitter-link');
+  const instagramLink = document.getElementById('instagram-link');
+
+  // Add functionality to the language and currency links using the modal
+  languageLink.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default link behavior
+    showModal('The language selection feature is not yet implemented.');
+  });
+
+  currencyLink.addEventListener('click', (event) => {
+    event.preventDefault(); // Prevent the default link behavior
+    showModal('The currency selection feature is not yet implemented.');
+  });
+
+  // Add functionality to the social media links
+  // The href attribute is already set, so we just add a console log
+  facebookLink.addEventListener('click', (event) => {
+    console.log('Navigating to Facebook...');
+  });
+
+  twitterLink.addEventListener('click', (event) => {
+    console.log('Navigating to Twitter...');
+  });
+
+  instagramLink.addEventListener('click', (event) => {
+    console.log('Navigating to Instagram...');
+  });
+</script>
+
+

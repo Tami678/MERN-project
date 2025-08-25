@@ -8,7 +8,7 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
     res.render("listings/index.ejs", { allListings });
 };*/
 
-module.exports.index = async (req, res) => {
+/*module.exports.index = async (req, res) => {
   const { city, category } = req.query;  // 👈 pick city from query
 
   let filter = {};
@@ -29,6 +29,32 @@ module.exports.index = async (req, res) => {
     category, 
     search: city || ""   // 👈 pass search back to navbar
   });
+};*/
+module.exports.index = async (req, res) => {
+  const { city, category } = req.query;
+  let filter = {};
+
+  // category filter
+  if (category) {
+    filter.category = category;
+  }
+
+  // city filter (case-insensitive search on location field)
+  if (city) {
+    filter.location = { $regex: city, $options: "i" };
+  }
+
+  try {
+    const listings = await Listing.find(filter);
+    res.render("listings/index", { 
+      listings, 
+      category: category || "", 
+      search: city || "" 
+    });
+  } catch (err) {
+    console.error("Error fetching listings:", err);
+    res.status(500).send("Something went wrong while fetching listings.");
+  }
 };
 
 

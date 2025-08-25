@@ -28,6 +28,8 @@
       font-size: 0.8rem;
       margin-top: 0.2rem;
     }
+    
+
 
     .tax-info {
       display: none;
@@ -127,44 +129,79 @@
     }
   </style>
   <!-- Search Bar -->
+   <!-- Search bar -->
+
+
+
+   
+<!-- Filter Bar -->
+<div id="filters">
+  <div class="filter" data-filter="Trending">
+    <div><i class="fa-solid fa-fire"></i></div><p>Trending</p>
+  </div>
+
+  <div class="filter" data-filter="Rooms">
+    <div><i class="fa-solid fa-bed"></i></div><p>Rooms</p>
+  </div>
+
+  <div class="filter" data-filter="Iconic Cities">
+    <div><i class="fa-solid fa-mountain-city"></i></div><p>Iconic Cities</p>
+  </div>
+
+  <div class="filter" data-filter="Mountains">
+    <div><i class="fa-solid fa-mountain"></i></div><p>Mountains</p>
+  </div>
+
+  <div class="filter" data-filter="Castles">
+    <div><i class="fa-brands fa-fort-awesome"></i></div><p>Castles</p>
+  </div>
+
+  <div class="filter" data-filter="Amazing Pools">
+    <div><i class="fa-solid fa-person-swimming"></i></div><p>Amazing Pools</p>
+  </div>
+
+  <div class="filter" data-filter="Camping">
+    <div><i class="fa-solid fa-campground"></i></div><p>Camping</p>
+  </div>
+
+  <div class="filter" data-filter="Farms">
+    <div><i class="fa-solid fa-cow"></i></div><p>Farms</p>
+  </div>
+
+  <div class="filter" data-filter="Arctic">
+    <div><i class="fa-solid fa-snowflake"></i></div><p>Arctic</p>
+  </div>
+
+  <div class="filter" data-filter="Domes">
+    <div><i class="fa-solid fa-landmark-dome"></i></div><p>Domes</p>
+  </div>
+
+  <div class="filter" data-filter="Boats">
+    <div><i class="fa-solid fa-sailboat"></i></div><p>Boats</p>
+  </div>
+
+  <!-- Toggle -->
+  <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault"/>
+      <label class="form-check-label" for="switchCheckDefault">
+        Display total after Taxes
+      </label>
+    </div>
+  </div>
+</div>
   
 
 
-  <!-- Filter Bar -->
-  <div id="filters">
-    <div class="filter" data-filter="Trending"><div><i class="fa-solid fa-fire"></i></div><p>Trending</p></div>
-    <div class="filter" data-filter="Rooms"><div><i class="fa-solid fa-bed"></i></div><p>Rooms</p></div>
-    <div class="filter" data-filter="Cities"><div><i class="fa-solid fa-mountain-city"></i></div><p>Iconic Cities</p></div>
-    <div class="filter" data-filter="Mountains"><div><i class="fa-solid fa-mountain"></i></div><p>Mountains</p></div>
-    <div class="filter" data-filter="Castles"><div><i class="fa-brands fa-fort-awesome"></i></div><p>Castles</p></div>
-    <div class="filter" data-filter="Pools"><div><i class="fa-solid fa-person-swimming"></i></div><p>Amazing Pools</p></div>
-    <div class="filter" data-filter="Camping"><div><i class="fa-solid fa-campground"></i></div><p>Camping</p></div>
-    <div class="filter" data-filter="Farms"><div><i class="fa-solid fa-cow"></i></div><p>Farms</p></div>
-    <div class="filter" data-filter="Arctic"><div><i class="fa-solid fa-snowflake"></i></div><p>Arctic</p></div>
-    <div class="filter" data-filter="Domes"><div><i class="fa-solid fa-landmark-dome"></i></div><p>Domes</p></div>
-    <div class="filter" data-filter="Boats"><div><i class="fa-solid fa-sailboat"></i></div><p>Boats</p></div>
-
-    <!-- Toggle -->
-    <div class="tax-toggle">
-      <div class="form-check-reverse form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault"/>
-        <label class="form-check-label" for="switchCheckDefault">
-          Display total after Taxes
-        </label>
-      </div>
-    </div>
-  </div>
-
-  <!-- Listings -->
-  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 g-4">
-    <% for (let listing of allListings) { %>
-      <div class="col" data-category="<%= listing.category %>">
-        <div class="card listing-card">
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 g-4">
+  <% for (let listing of listings) { %>
+    <div class="col" data-category="<%= listing.category %>">
+      <div class="card listing-card">
+      
           <!-- Heart button -->
           <div class="heart-icon">
             <i class="fa-regular fa-heart"></i>
           </div>
-
           <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none text-dark">
             <img 
               src="<%= listing.image.url %>" 
@@ -183,6 +220,7 @@
       </div>
     <% } %>  
   </div>
+</div>    
 
   <!-- Scripts -->
   <script>
@@ -216,28 +254,34 @@
       });
     });
   </script>
-
-  <script>
-    // Filtering listings
+<script>
+  // Filtering listings with backend
     document.querySelectorAll(".filter").forEach(filterBtn => {
       filterBtn.addEventListener("click", () => {
-        const selected = filterBtn.getAttribute("data-filter");
-        const allListings = document.querySelectorAll(".row .col");
+      const selected = filterBtn.getAttribute("data-filter");
 
-        allListings.forEach(card => {
-          const category = card.getAttribute("data-category");
-          if (selected === "Trending" || category === selected) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
-        });
-
-        // Highlight active filter
-        document.querySelectorAll(".filter").forEach(f => f.classList.remove("active-filter"));
-        filterBtn.classList.add("active-filter");
-      });
+      // Redirect to backend route with category as query
+      if (selected === "Trending") {
+        window.location.href = "/listings"; // show all
+      }  else {
+        window.location.href = `/listings?category=${encodeURIComponent(selected)}`;
+      }
     });
-  </script>
+  });
+</script>
+<script>
+  document.getElementById("categoryFilter").addEventListener("change", function () {
+    const selected = this.value;
+    const url = new URL(window.location.href);
+    if (selected) {
+      url.searchParams.set("category", selected);
+    } else {
+      url.searchParams.delete("category");
+    }
+    window.location.href = url.toString();
+  });
+</script>
+
+  
 </body>
 

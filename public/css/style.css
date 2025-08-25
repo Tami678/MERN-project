@@ -185,17 +185,42 @@ footer.footer {
 /* Wishlist Heart */
 .heart-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(255, 255, 255, 0.9);
+  top: 12px;
+  right: 12px;
+  background: #fff; /* solid white, no transparency */
   border-radius: 50%;
-  padding: 6px;
-  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
   color: #777;
-  transition: color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
-.heart-icon:hover { color: #FF385C; transform: scale(1.15); cursor: pointer; }
-.heart-icon.active { color: #FF385C; }
+
+.heart-icon:hover {
+  color: #FF385C;
+  transform: scale(1.1);
+  background: #f8f8f8; /* subtle hover bg */
+  cursor: pointer;
+}
+
+.heart-icon.active {
+  color: #FF385C;
+}
+
+/* Mobile friendly size */
+@media (max-width: 480px) {
+  .heart-icon {
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    right: 8px;
+    font-size: 16px;
+  }
+}
 
 /* Card Info */
 .listing-info {
@@ -254,6 +279,22 @@ footer.footer {
   .listing-card { border-radius: 12px; max-width: 100%; }
   .listing-card img { height: 130px; }
 }
+/* Card image */
+.card img {
+  width: 100%;
+  height: 200px; /* Desktop height */
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Mobile view */
+@media (max-width: 450px) {
+  .card img {
+    height: 140px; /* smaller image on phones */
+  }
+}
+
 
 
 
@@ -286,29 +327,83 @@ footer.footer {
   transition: all 0.2s ease-in-out;
 }
 
-/* Custom style for listing images */
-.listing-img {
-  max-width: 100%;        /* Responsive: fits container width */
-  width: 300px;           /* Default size on large screens */
-  height: auto;           /* Keeps aspect ratio */
-  display: block;         /* Avoids inline issues */
-  border-radius: 12px;    /* Smooth rounded corners */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Subtle shadow */
-  margin: 0 auto 15px 0;  /* Left aligned, with spacing below */
-  transition: transform 0.3s ease-in-out; /* Hover effect */
+/* Base Grid */
+.listings-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-.listing-img:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
+/* Card */
+.listing-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
 }
 
-/* On smaller screens, let image take full width */
-@media (max-width: 576px) {
-  .listing-img {
-    width: 100%;
-    max-width: 100%;
+.listing-card:hover {
+  transform: translateY(-5px);
+}
+
+.listing-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 12px;
+}
+
+.card-body h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 6px;
+}
+
+/* Tablet (2 per row) */
+@media (max-width: 768px) {
+  .listings-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .listing-card img {
+    height: 180px;
   }
 }
+
+/* Mobile (1 per row, full width) */
+@media (max-width: 480px) {
+  .listings-container {
+    grid-template-columns: 1fr; /* ✅ Force full width */
+    gap: 16px;
+    padding: 12px;
+  }
+
+  .listing-card img {
+    height: 200px;
+  }
+
+  .card-body h3 {
+    font-size: 1rem;
+  }
+
+  .card-body p {
+    font-size: 0.85rem;
+  }
+}
+
 
 
 
@@ -561,3 +656,35 @@ footer.footer {
   background: #FF385C;
   color: #fff;
 }
+/* Create a custom gutter class */
+.custom-gutter {
+  --bs-gutter-x: 3rem;   /* horizontal gap (between columns) */
+  --bs-gutter-y: 0.75rem; /* vertical gap (between rows) */
+}
+
+  /* --- Airbnb-style stars --- */
+  .starability-result {
+    display: inline-block;
+    font-size: 1rem;   /* smaller stars */
+    line-height: 1;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+  }
+
+  .starability-result:before {
+    letter-spacing: 2px; /* tighter spacing between stars */
+    color: #FF385C;       /* Airbnb pink/red */
+  }
+
+  /* Text beside stars */
+  .rating-text, 
+  .review-rating-text {
+    font-size: 0.95rem;
+    color: #717171; /* Airbnb gray */
+    margin-left: 6px;
+  }
+
+
+
+
