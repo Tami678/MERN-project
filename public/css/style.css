@@ -294,6 +294,56 @@ footer.footer {
     height: 140px; /* smaller image on phones */
   }
 }
+/* =======================
+   EDIT PAGE IMAGE
+======================= */
+.listing-img {
+  width: 1000%;
+  max-height: 180px;
+  max-width: 280px;     /* keep it compact */
+  object-fit: cover;     /* crop nicely */
+  border-radius: 12px;   /* smooth rounded corners */
+  display: inline-block;
+  margin: 0 ;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12); /* subtle depth */
+}
+
+/* Hover effect (Airbnb style) */
+.listing-img:hover {
+  transform: scale(1.03);  /* gentle zoom */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+.listing-img-wrapper{
+  display: flex;
+  align-items: flex-start;
+  align-items: flex-start;
+  gap: 12px; /* space between text and image */
+  margin-bottom: 1rem;
+} 
+.listing-img-wrapper p {
+  font-weight: 600;
+  margin: 0;
+  min-width: 120px; /* keeps label readable */
+} 
+
+/* Mobile: keep smaller height */
+
+@media (max-width: 576px) {
+  .listing-img-wrapper {
+    flex-direction: column;
+    align-items: flex-start; /* left align */
+    gap: 6px;
+  }
+  .listing-img {
+    width: 85%;
+    max-width: 220px;
+  }
+} 
+
+
 
 
 
