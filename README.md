@@ -1,4 +1,4 @@
-# MERN Project
+# Wanderlust wbsite
 🚀 Live Demo: https://mern-project-s65e.onrender.com
 
 ## 📌 Overview
