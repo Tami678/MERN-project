@@ -88,7 +88,7 @@ footer.footer {
   text-decoration: underline;
 }
 .footer-bottom {
-  border-top: 1px solid #ddd;
+  border-top: none !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
