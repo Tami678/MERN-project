@@ -31,30 +31,23 @@ const geocodingClient = mbxGeocoding({ accessToken: mapToken });
   });
 };*/
 module.exports.index = async (req, res) => {
-  const { city, category } = req.query;
+  const { category, city } = req.query;
   let filter = {};
 
-  // category filter
   if (category) {
-    filter.category = category;
+    filter.category = { $regex: new RegExp(category, "i") };  
   }
 
-  // city filter (case-insensitive search on location field)
   if (city) {
     filter.location = { $regex: city, $options: "i" };
   }
 
-  try {
-    const listings = await Listing.find(filter);
-    res.render("listings/index", { 
-      listings, 
-      category: category || "", 
-      search: city || "" 
-    });
-  } catch (err) {
-    console.error("Error fetching listings:", err);
-    res.status(500).send("Something went wrong while fetching listings.");
-  }
+  const listings = await Listing.find(filter);
+
+  console.log("Filter applied:", filter);
+  console.log("Listings found:", listings.length);
+
+  res.render("listings/index", { listings, category });
 };
 
 

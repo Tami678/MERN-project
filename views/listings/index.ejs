@@ -203,11 +203,20 @@
             <i class="fa-regular fa-heart"></i>
           </div>
           <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none text-dark">
-            <img 
-              src="<%= listing.image.url %>" 
-              class="card-img-top" 
-              alt="listing_image"
-            />
+           <% if (listing.image && listing.image.url) { %>
+              <img 
+                src="<%= listing.image.url %>" 
+                class="card-img-top" 
+                alt="listing_image"
+              />
+            <% } else { %>
+              <img 
+                src="https://via.placeholder.com/400x300?text=No+Image" 
+                class="card-img-top" 
+                alt="no_image"
+              />
+            <% } %>
+
             <div class="card-body">
               <p class="card-text">
                 <b><%= listing.title %></b><br>
@@ -267,18 +276,6 @@
         window.location.href = `/listings?category=${encodeURIComponent(selected)}`;
       }
     });
-  });
-</script>
-<script>
-  document.getElementById("categoryFilter").addEventListener("change", function () {
-    const selected = this.value;
-    const url = new URL(window.location.href);
-    if (selected) {
-      url.searchParams.set("category", selected);
-    } else {
-      url.searchParams.delete("category");
-    }
-    window.location.href = url.toString();
   });
 </script>
 
